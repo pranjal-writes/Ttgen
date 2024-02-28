@@ -1,0 +1,1 @@
+{% if message.tags %} class="{{ message.tags }}" --> register.html - color of messages in this will be done in the css

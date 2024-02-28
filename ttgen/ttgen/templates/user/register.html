@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {% block title %}register{% endblock %}
+
+    
+        {% block body %}
+        
+{% load static %}
+        <form action="" method="post">
+          {% csrf_token %}
+            <div class="container">
+              <h1>Register</h1>
+              
+              <hr>
+              <div id="message-container">
+              <div id="usercheck">
+                {% for message in messages %}
+            <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}<i class="ion-close-circled"
+                    onclick="document.getElementById('message-container').style.opacity='0';setTimeout(function(){document.getElementById('message-container').style.display='none'},500)"></i>
+            </p>
+            {% endfor %}
+
+              </div></div>
+              <label for="uid"><b>Teacher UID</b></label>
+              <input type="text" placeholder="Enter UID" name="uid" id="uid" required>
+
+              <label for="name"><b>Name</b></label>
+              <input type="text" placeholder="Enter Name" name="name" id="name" required>
+
+
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="email" id="email" required>
+          
+              <label for="psw1"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw1" id="psw" required>
+          
+              <label for="psw2"><b>Repeat Password</b></label>
+              <input type="password" placeholder="Repeat Password" name="psw2" id="psw-repeat" required>
+              <hr>
+          
+              
+              <button type="submit" class="registerbtn">Register</button>
+            </div>
+          
+            <div class="container signin">
+              <p>Already have an account? <a href="/user/login">Sign in</a>.</p>
+            </div>
+          </form>
+<script>
+   $('#uid').keyup(function () {
+            $.ajax({
+                url: '/user/usercheck',
+                type:"POST",
+                async:true,
+                data:{
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    uid: $('#uid').val()
+                },
+                success: function (result) {
+                  console.log(result)
+                    $("#usercheck").html(result);
+                    
+                }
+            })
+        })
+</script>
+
+        {% endblock %}

@@ -1,0 +1,76 @@
+
+{% extends 'data_management/base2.html' %} {% block title %}rooms{% endblock %}
+{% load static %}
+    
+        {% block body2 %}
+        
+
+
+<h2>rooms</h2>
+
+<form action="" method="post">
+    {% csrf_token %}
+      <div class="container">
+     
+
+        
+
+        
+
+        <label for="branch">Choose Branch:</label>
+        <select name="branch" id="branch" required>
+            <option value="computer-science">Computer Science</option>
+          <option value="information-technology">Information Technology</option>
+          <option value="IoT">Internet of Things</option>
+          <option value="AIDS">AIDS</option>
+        </select>
+    
+    
+        
+        <label for="semester">Select semester</label>
+        <select name="semester" id="semester" multiple required>
+            <option value="first">I</option>
+          <option value="second">II</option>
+          <option value="third">III</option>
+          <option value="forth">IV</option>
+          <option value="fifth">V</option>
+          <option value="sixth">VI</option>
+          <option value="seventh">VII</option>
+          <option value="eighth">VIII</option>
+          
+        </select>
+
+
+        <label for="room">Select available rooms</label>
+        <select name="rooms" id="rooms" multiple required>
+            <option value="first">001</option>
+          <option value="second">002</option>
+          <option value="second">103</option>
+          <option value="second">104</option>
+          <option value="second">105</option>
+          <option value="second">106</option>
+          <option value="second">107</option>
+          <option value="second">108</option>
+          
+        </select>
+
+
+
+        
+
+
+
+    
+        
+        <button type="submit" class="addbtn">add rooms</button>
+      </div>
+    
+      
+    </form>
+       
+    
+    {% endblock %}
+    {% block js %}
+    
+   
+{% endblock %}

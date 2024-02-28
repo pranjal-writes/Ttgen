@@ -1,0 +1,62 @@
+
+{% extends 'data_management/base2.html' %} {% block title %}course{% endblock %}
+{% load static %}
+    
+        {% block body2 %}
+        
+
+
+<h2>course</h2>
+
+<form action="" method="post">
+    {% csrf_token %}
+      <div class="container">
+     
+
+        <label for="branch">Choose Branch:</label>
+        <select name="branch" id="branch" required>
+            <option value="computer-science">Computer Science</option>
+          <option value="information-technology">Information Technology</option>
+          <option value="IoT">Internet of Things</option>
+          <option value="AIDS">AIDS</option>
+        </select>
+
+        <label for="semester">Select semester for the course </label>
+        <select name="semester" id="semester" required>
+            <option value="first">I</option>
+          <option value="second">II</option>
+          <option value="third">III</option>
+          <option value="forth">IV</option>
+          <option value="fifth">V</option>
+          <option value="sixth">VI</option>
+          <option value="seventh">VII</option>
+          <option value="eighth">VIII</option>
+          
+        </select>
+
+
+        <label for="course-id"><b>Course-ID</b></label>
+        <input type="text" placeholder="Enter Course-ID" name="cid" id="cid" required>
+
+
+        <label for="course-name"><b>Course Name</b></label>
+        <input type="text" placeholder="Enter Course Name" name="course-name" id="course-name" required>
+    
+    
+        
+        <label for="course Type">Choose Course Type</label>
+        <select name="ctype" id="ctype" required>
+            <option value="theory">Theory</option>
+          <option value="lab">Lab</option>
+          
+        </select>
+    
+        
+        <button type="submit" class="addbtn">Add Course</button>
+      </div>
+    
+      
+    </form>
+
+   
+{% endblock %}

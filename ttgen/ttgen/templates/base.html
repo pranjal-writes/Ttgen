@@ -1,0 +1,28 @@
+<!doctype html>
+{% load static %}
+<html>
+  <head>
+    <title>{% block title %} {% endblock %}</title>
+    <style>
+      body{
+        background-color: #000;
+        color: #fff
+      }
+    </style>
+    {% block css %}{% endblock %}
+  </head>
+  <body>
+    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
+    <script src="{% static 'jquery.js' %}"></script>
+{% block body%} {% block content %} {% endblock %} {%endblock%}
+    
+{% block body2 %}
+{% endblock %}
+
+{% block js %}
+
+
+
+{% endblock %}
+  </body>
+</html>

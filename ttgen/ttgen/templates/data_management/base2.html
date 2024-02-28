@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block title %}data-management{% endblock %}
+
+    
+        {% block body %}
+        
+{% load static %}
+
+
+    <div id="sidebar"> 
+      <ul> 
+        <li><a href="{% url 'course' %}">course</a></li> 
+        <li><a href="{% url 'professor' %}">Professor</a></li> 
+        <li><a href="{% url 'days-time' %}">Days And Time</a></li> 
+        <li><a href="{% url 'rooms' %}">Rooms</a></li> 
+      </ul> 
+    </div> 
+    {% endblock %}
+   
